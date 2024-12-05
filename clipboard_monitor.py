@@ -44,6 +44,7 @@ class ClipboardMonitor:
 
         # 加载配置
         self.load_config()
+        
 
         # 创建框架用于显示剪切板内容和历史记录
         self.frame = tk.Frame(root, bg=self.bg_color)
@@ -312,6 +313,18 @@ class ClipboardMonitor:
                     self.content_font_weight = default_config["content_font_weight"]
                     logging.info("Using default configuration.")
                     self.save_config()
+
+        else:
+            logging.info("Configuration file not found. Using default configuration.")
+            self.alpha = default_config["alpha"]
+            self.bg_color = default_config["bg_color"]
+            self.lable_font = default_config["lable_font"]
+            self.lable_font_size = default_config["lable_font_size"]
+            self.lable_font_weight = default_config["lable_font_weight"]
+            self.content_font = default_config["content_font"]
+            self.content_font_size = default_config["content_font_size"]
+            self.content_font_weight = default_config["content_font_weight"]
+            self.save_config()
 
 
     def save_config(self):
